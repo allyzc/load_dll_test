@@ -36,7 +36,7 @@ QVector<uint8_t> strToBytes(const QString& s);
 QString bytesToStr(const uint8_t* data,
                    int len,
                    bool upper = true,
-                   QChar sep = QChar(' '));
+                   QChar sep = QChar('\0'));
 
 uint64_t strToHexAddress(QString s);
 

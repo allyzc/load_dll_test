@@ -64,19 +64,12 @@ void MainWindow::on_btn_capstone_dsm_clicked()
         &insn
     );
 
-    QString s_intput = Contx::bytesToStr(code.data(), code.size());
-    qDebug()<<"input:"<<s_intput;
-    qDebug()<<"count:"<<count;
-
     ui->tb_output_dsm->clear();
 
     QString s_out = "";
 
     for (size_t i = 0; i < count; i++) {
-        s_out += QString::asprintf("%016llX,%s,%s\r\n", insn[i].address, insn[i].mnemonic, insn[i].op_str);
-        // qDebug() << QString("%1 %2")
-        // .arg(insn[i].mnemonic)
-        //     .arg(insn[i].op_str);
+        s_out += QString::asprintf("%016llX:%s %s\r\n", insn[i].address, insn[i].mnemonic, insn[i].op_str);
     }
 
     ui->tb_output_dsm->append(s_out);
